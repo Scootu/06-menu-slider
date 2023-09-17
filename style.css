@@ -26,7 +26,19 @@ nav {
     width: 200px;
     height: 100vh;
     position: fixed;
-    transform: translateX(-100%)
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.show-nav {
+    transform: translate(0);
+}
+
+.toggle-show {
+    transition: transform 0.3s ease;
+    transform: translateX(200px);
+    position: fixed !important;
 }
 
 .logo {
@@ -136,8 +148,6 @@ header p {
 }
 
 
-
-
 .modal-container-hed {
     position: fixed;
     top: 0;
@@ -146,7 +156,13 @@ header p {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
     display: none;
+    animation: modalopen;
+    animation-duration: 1s;
+}
 
+.show-modal {
+    display: block;
+    opacity: 1;
 }
 
 .modal-container {
@@ -213,4 +229,15 @@ header p {
 
 .btn-submit {
     padding: 1rem;
+}
+
+
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
